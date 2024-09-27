@@ -1,0 +1,16 @@
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\SatTrackerComs.exe.config
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\SatTrackerComs.exe
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\SatTrackerComs.pdb
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.csproj.AssemblyReference.cache
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.Properties.Resources.resources
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.csproj.GenerateResource.cache
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.csproj.CoreCompileInputs.cache
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.exe
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.pdb
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\SatelliteTrackerActual.exe
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\SatelliteTrackerActual.pdb
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\SatelliteTrackerActual.exe.config
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.csproj.CopyComplete
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatTrackerComs\obj\Debug\SatTrackerComs.TrackerUIForm.resources

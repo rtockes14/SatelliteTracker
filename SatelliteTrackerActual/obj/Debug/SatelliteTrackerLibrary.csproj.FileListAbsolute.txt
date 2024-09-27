@@ -1,0 +1,4 @@
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatelliteTrackerActual\obj\Debug\SatelliteTrackerLibrary.csproj.AssemblyReference.cache
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatelliteTrackerActual\obj\Debug\SatelliteTrackerLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatelliteTrackerActual\obj\Debug\SatelliteTrackerActual.exe
+C:\Users\Randa\OneDrive\Desktop\c#classpractice\SatelliteTrackerActual\obj\Debug\SatelliteTrackerActual.pdb

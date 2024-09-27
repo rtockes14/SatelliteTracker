@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SatTrackerComsUI", "SatTrackerComsUI.csproj", "{EE3E2E33-ED56-4190-9C06-F3CAC2518028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SatelliteTrackerActual", "..\..\SatelliteTracker\SatelliteTracker\SatelliteTrackerActual\SatelliteTrackerActual.csproj", "{73C763CB-0F0E-4B66-87FA-3EA7953169DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE3E2E33-ED56-4190-9C06-F3CAC2518028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3E2E33-ED56-4190-9C06-F3CAC2518028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3E2E33-ED56-4190-9C06-F3CAC2518028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3E2E33-ED56-4190-9C06-F3CAC2518028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C763CB-0F0E-4B66-87FA-3EA7953169DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C763CB-0F0E-4B66-87FA-3EA7953169DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C763CB-0F0E-4B66-87FA-3EA7953169DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C763CB-0F0E-4B66-87FA-3EA7953169DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D7026E14-9C2D-46BB-B8B9-533E15616156}
+	EndGlobalSection
+EndGlobal

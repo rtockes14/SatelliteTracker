@@ -9,7 +9,8 @@ namespace SatelliteTrackerActual
 {
     public class TextConnector : IDataConnection
     {
-        private const string LocationsFile = "LocationModel.csv";
+        private const string LocationsFile = "LocationModels.csv";
+        private const string SatellitesFile = "SatelliteModels.csv";
 
 
         // TODO -- Wire up the AddUserInfo for text files. 
@@ -19,6 +20,31 @@ namespace SatelliteTrackerActual
 
             return model;
         }
+
+
+        public SatelliteInfo AddSatelliteInfo(SatelliteInfo model)
+        {
+            List<SatelliteInfo> satellites = SatellitesFile.FullFilePath().LoadFile().ConvertToSatelliteModels();
+
+            int currentId = 1;
+
+            if (satellites.Count > 0)
+            {
+                currentId = satellites.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            // Add the new record with the new ID (max + 1)
+            satellites.Add(model);
+
+            // Convert the satellites to a List<string>
+            //Save the list<string> to text file
+            satellites.SaveToSatelliteFile(SatellitesFile);
+
+            return model;
+        }
+
 
         public Location AddLocationInfo(Location model)
         {
@@ -44,5 +70,6 @@ namespace SatelliteTrackerActual
 
             return model;
         }
+
     }
 }

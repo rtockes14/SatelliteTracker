@@ -54,6 +54,26 @@ namespace SatelliteTrackerActual.DataAccess.TextHelpers
             return output;
         }
 
+        public static List<SatelliteInfo> ConvertToSatelliteModels(this List<string> lines)
+        {
+            List<SatelliteInfo> output = new List<SatelliteInfo>();
+
+            foreach (string line in lines)
+            {
+                string[] cols = line.Split(',');
+
+                SatelliteInfo s = new SatelliteInfo();
+                s.Id = int.Parse(cols[0]);
+                s.SatelliteName = cols[1];
+                s.NoradId = int.Parse(cols[2]);
+                s.Period = decimal.Parse(cols[3]);
+
+                output.Add(s);
+            }
+
+            return output;
+        }
+
         public static void SaveToLocationFile(this List<Location> models, string fileName)
         {
             List<string> lines = new List<string>();
@@ -64,6 +84,20 @@ namespace SatelliteTrackerActual.DataAccess.TextHelpers
             }
 
             File.WriteAllLines(fileName.FullFilePath(), lines);
+        }
+
+        public static void SaveToSatelliteFile(this List<SatelliteInfo> models, string fileName)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (SatelliteInfo s in models)
+            {
+                lines.Add($"{s.Id},{s.SatelliteName},{s.NoradId},{s.Period}");
+
+            }
+
+            File.WriteAllLines(fileName.FullFilePath(), lines);
+
         }
     }
 }

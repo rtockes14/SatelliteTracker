@@ -42,5 +42,25 @@ namespace SatelliteTrackerActual
                 return model;
             }
         }
+
+        public SatelliteInfo AddSatelliteInfo(SatelliteInfo model) 
+        { 
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("SavedSatellites")))
+            {
+                var p = new DynamicParameters();
+
+                p.Add("@Name", model.SatelliteName);
+                p.Add("@NoradId", model.NoradId);
+                p.Add("@Period", model.Period);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spSatellite_Insert", p, commandType: CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@id");
+
+                return model;
+                
+            }
+        }
     }
 }

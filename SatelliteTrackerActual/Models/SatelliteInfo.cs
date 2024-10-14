@@ -8,7 +8,9 @@ namespace SatelliteTrackerActual
 {
     public class SatelliteInfo
     {
-        public string SatellliteName { get; set; }
+        // The unique non-Norad identifier for the satellite
+        public int Id {  get; set; }
+        public string SatelliteName { get; set; }
         public int NoradId { get; set; }
         public decimal Period { get; set; }
     }

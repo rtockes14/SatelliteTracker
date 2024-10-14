@@ -11,5 +11,7 @@ namespace SatelliteTrackerActual
         UserInfo AddUserInfo(UserInfo model);
 
         Location AddLocationInfo(Location model);
+
+        SatelliteInfo AddSatelliteInfo(SatelliteInfo model);
     }
 }

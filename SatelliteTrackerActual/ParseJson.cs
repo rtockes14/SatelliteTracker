@@ -26,7 +26,8 @@ namespace SatelliteTrackerActual
         public List<Position> JMethodList(string body)
         {
             Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(body);
-
+            
+            // TODO -- Add error handling in the event satellite doesn't return positions(it's not available anymore)
             return myDeserializedClass.positions.ToList();
         }
 

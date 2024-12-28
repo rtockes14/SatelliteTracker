@@ -71,5 +71,14 @@ namespace SatelliteTrackerActual
             return model;
         }
 
+        public List<Location> GetLocations_All()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<SatelliteInfo> GetSatellites_All() 
+        { 
+            throw new NotImplementedException(); 
+        }
     }
 }

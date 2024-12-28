@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SatelliteTrackerActual
 {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    //Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Info
     {
         public string satname { get; set; }

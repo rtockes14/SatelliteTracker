@@ -10,6 +10,8 @@ namespace SatelliteTrackerActual
 {
     public class SqlConnector : IDataConnection
     {
+        private const string db = "SavedSatellites";
+
         // TODO - Make the AddUser methode actually save to the database
         /// <summary>
         /// Saves a new user to the database
@@ -25,7 +27,7 @@ namespace SatelliteTrackerActual
 
         public Location AddLocationInfo(Location model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("SavedSatellites")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 var p = new DynamicParameters();
 
@@ -35,7 +37,7 @@ namespace SatelliteTrackerActual
                 p.Add("@Altitude", model.ObserverAltitude);               
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                connection.Execute("dbo.spLocations_Insert", p, commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spLocation_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
 
@@ -45,7 +47,7 @@ namespace SatelliteTrackerActual
 
         public SatelliteInfo AddSatelliteInfo(SatelliteInfo model) 
         { 
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("SavedSatellites")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
             {
                 var p = new DynamicParameters();
 
@@ -61,6 +63,30 @@ namespace SatelliteTrackerActual
                 return model;
                 
             }
+        }
+
+        public List<Location> GetLocations_All()
+        {
+            List<Location> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output = connection.Query<Location>("dbo.spLocations_GetAll").ToList();
+            }
+
+            return output;
+        }
+
+        public List<SatelliteInfo> GetSatellites_All()
+        {
+            List<SatelliteInfo> output;
+
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+            {
+                output = connection.Query<SatelliteInfo>("dbo.spSatellites_GetAll").ToList();
+            }
+
+            return output;
         }
     }
 }

@@ -13,5 +13,9 @@ namespace SatelliteTrackerActual
         Location AddLocationInfo(Location model);
 
         SatelliteInfo AddSatelliteInfo(SatelliteInfo model);
+
+        List<Location> GetLocations_All();
+
+        List<SatelliteInfo> GetSatellites_All();
     }
 }

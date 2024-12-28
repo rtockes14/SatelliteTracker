@@ -91,6 +91,7 @@
     <Compile Include="DataAccess\SqlConnector.cs" />
     <Compile Include="DataAccess\TextConnector.cs" />
     <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="RelevantData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

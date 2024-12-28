@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../../Documents/SatTracker"
+		},
+		{
+			"name": "241019-184821-esp32dev",
+			"path": "../Documents/PlatformIO/Projects/Garduino_IO/241019-184821-esp32dev"
+		},
+		{
+			"name": "SatTracker_Motor-Display_Driver",
+			"path": "../Documents/PlatformIO/Projects/SatTracker_Motor-Display_Driver"
+		}
+	]
+}

@@ -3,7 +3,7 @@
 #include "MPU9250.h"
 #include <LiquidCrystal_I2C.h>
 #include <ArduinoJson.h>
-
+#include <cmath>
 
 LiquidCrystal_I2C lcd(0x27,20,4);
 
@@ -53,10 +53,16 @@ const int minElevation = 0;
 
 bool tiltingUp = false;
 bool tiltingDown = false;
-bool alreadyMoving = false;
+bool panningLeft = false;
+bool panningRight = false;
+bool alreadyTilting = false;
+bool alreadyPanning = false;
 
-int desiredElevation = 70; // test elevation for conrol
+int desiredElevation = 70; // test elevation for control
+int desiredHeading = 280; // test heading for control
 int tolerance = 5;
+
+// ===========================================================================================================
 
 void print_roll_pitch_yaw() {
     Serial.print("Yaw, Pitch, Roll: ");
@@ -100,67 +106,140 @@ void rotateLeftThenRight()
     delay(5000);
 }
 
-void elevationTest()
+float normalize_angle(double angle) {
+    angle = fmod(angle, 360.0);  // Wrap angle within [0, 360)
+    if (angle < 0) {
+        angle += 360.0;  // Ensure it's positive
+    }
+    if (angle > 180.0) {
+        angle -= 360.0;  // Normalize to [-180, 180)
+    }
+    return angle;
+}
+
+float get_shortest_rotation(double current, double target) 
 {
+    float delta = target - current;
+    return normalize_angle(delta);  // Normalize the difference to [-180, 180]
+}
+
+void orientationTest()
+{
+    float x = mpu.getMagX();
+    float y = mpu.getMagY();
+
+    float heading = atan2(x, y);
+    float declination = -2.6;
+
+    heading += declination;
+    heading = heading * 180.0 / PI;
+
+    if (heading < 0)
+    {
+        heading += 360;
+    }
+
+    currentHeading = heading;
     currentElevation = mpu.getRoll();
 
     // check if desired elevation is greater than current roll angle.  If so set tilting up to true
-    if (currentElevation <= (desiredElevation - tolerance) && currentElevation < maxElevation && alreadyMoving == false)
+    if (currentElevation <= (satElevation - tolerance) && currentElevation < maxElevation && alreadyTilting == false)
     {
         tiltingUp = true;
         Serial.print("Begin Tilting UP  ");
         Serial.println(currentElevation);
     }
-    if (currentElevation > (desiredElevation))
+    if (currentElevation > (satElevation))
     {
         tiltingUp = false;
         Serial.println("Don't Begin Tilting UP");
     }
     // check if desired elevation is less than the current roll angle.  If so set tiling down to true
-    if (currentElevation >= (desiredElevation + tolerance) && currentElevation > minElevation && alreadyMoving == false)
+    if (currentElevation >= (satElevation + tolerance) && currentElevation > minElevation && alreadyTilting == false)
     {
         tiltingDown = true;
         Serial.print("Begin Tilting DOWN  ");
         Serial.println(currentElevation);
     }
-    if (currentElevation < (desiredElevation))
+    if (currentElevation < (satElevation))
     {
         tiltingDown = false;
         Serial.println("Don't Begin Tilting DOWN");
     }
+    // Determine whether difference in azimuth requires left or right pan
+    float rotation = get_shortest_rotation(currentAzimuth, desiredHeading);
+
+    if (rotation < 0)
+    {
+        panningLeft = true;
+        Serial.print("Begin Panning LEFT  ");
+        Serial.println(currentAzimuth);
+    }
+    if (rotation > 0)
+    {
+        panningRight = true;
+        Serial.print("Begin Panning RIGHT  ");
+        Serial.println(currentAzimuth);
+    }
+    // Start panning Left if not already panning
+    if ((panningLeft) && !(currentAzimuth < desiredHeading) && alreadyPanning == false)
+    {
+        digitalWrite(INPUT_1, LOW);
+        digitalWrite(INPUT_2, HIGH);
+        analogWrite(ENABLE_A, 55); // pan
+        alreadyTilting = true;
+        Serial.println("Currently Tilting UP");
+    }
+    // Start panning Right if not already panning
+    if ((panningRight) && !(currentAzimuth < desiredHeading) && alreadyPanning == false)
+    {
+        digitalWrite(INPUT_1, HIGH);
+        digitalWrite(INPUT_2, LOW);
+        analogWrite(ENABLE_A, 55); // pan
+        alreadyTilting = true;
+        Serial.println("Currently Tilting UP");
+    }
+    // ===============================================================================================================================
+
     // if antenna should be tilting up, move motor in ccw direction.  ======== START TILTING UP
-    if (tiltingUp == true && alreadyMoving == false)
+    if (tiltingUp == true && alreadyTilting == false)
     {
         digitalWrite(INPUT_3, LOW);
         digitalWrite(INPUT_4, HIGH);
-        analogWrite(ENABLE_A, 55); // pan
         analogWrite(ENABLE_B, 55); // tilt
-        alreadyMoving = true;
+        alreadyTilting = true;
         Serial.println("Currently Tilting UP");
     }
-    
    // if antenna should be tilting down, move motor in ccw direction.  ======== START TILTING DOWN
-    if (tiltingDown == true && alreadyMoving == false)
+    if (tiltingDown == true && alreadyTilting == false)
     {
         digitalWrite(INPUT_3, HIGH);
         digitalWrite(INPUT_4, LOW);
-        analogWrite(ENABLE_A, 55); // pan
         analogWrite(ENABLE_B, 55); // tilt
-        alreadyMoving = true;
+        alreadyTilting = true;
         Serial.println("Currently Tilting DOWN");
     }
 
-    // if neighter up or down movement is needed, turn off motors
+    // ===============================================================================================================================
+
+    // if neither up or down movement is needed, turn off motor
     if (tiltingDown == false && tiltingUp == false)
     {
         digitalWrite(INPUT_3, LOW);
         digitalWrite(INPUT_4, LOW);
+        analogWrite(ENABLE_B, 0);
+        alreadyTilting = false;
+        Serial.println(" Quitting tilt condition");
+    }
+    // if neither left or right movement is needed, turn off motor
+    if (panningLeft == false && panningRight == false)
+    {
+        digitalWrite(INPUT_1, LOW);
+        digitalWrite(INPUT_2, LOW);
         analogWrite(ENABLE_A, 0);
         analogWrite(ENABLE_B, 0);
-        alreadyMoving = false;
-        Serial.print(tiltingDown);
-        Serial.print(tiltingUp);
-        Serial.println(" Quitting condition");
+        alreadyPanning = false;
+        Serial.println(" Quitting pan condition");
     }
 }
 
@@ -172,7 +251,6 @@ void stop()
     digitalWrite(INPUT_3, LOW);
     digitalWrite(INPUT_4, LOW);
 }
-
 
 void parseJson(String jsonData)
 {
@@ -202,6 +280,7 @@ void parseJson(String jsonData)
   shorterDate[20] = '\0';
 }
 
+
 void lcdPrint()
 {
     lcd.clear();
@@ -230,6 +309,8 @@ void lcdPrint()
     lcd.print(shorterDate);
 
 }
+
+
 void setup() {
 
     pinMode(ENABLE_A, OUTPUT);
@@ -267,7 +348,9 @@ void setup() {
 }
 
 
-void loop() {
+void loop() 
+{
+
     unsigned long currentMillis = millis(); // get the current time
 
     if (mpu.update()) {
@@ -277,6 +360,13 @@ void loop() {
             prev_ms = millis();
         }
     }
+
+    
+    
+    orientationTest();
+}
+
+
 
     //if (currentMillis - previousMillis >= interval) {
         //previousMillis = currentMillis;
@@ -304,8 +394,3 @@ void loop() {
         //lcd.print("Mag: ");
         //lcd.print(heading);
     //}
-    
-    elevationTest();
-}
-
-

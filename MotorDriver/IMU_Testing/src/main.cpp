@@ -364,33 +364,33 @@ void loop()
     
     
     orientationTest();
-}
 
 
 
-    //if (currentMillis - previousMillis >= interval) {
-        //previousMillis = currentMillis;
 
-        //float x = mpu.getMagX();
-        //float y = mpu.getMagY();
+    if (currentMillis - previousMillis >= interval) {
+        previousMillis = currentMillis;
 
-        //float heading = atan2(x, y);
-        //float declination = -2.6;
+        float x = mpu.getMagX();
+        float y = mpu.getMagY();
 
-        //heading += declination;
-        //heading = heading * 180.0 / PI;
+        float heading = atan2(x, y);
+        float declination = -2.6;
 
-        //if (heading < 0){
-            //heading += 360;
-        //}
+        heading += declination;
+        heading = heading * 180.0 / PI;
 
-        //lcd.clear();
-        //lcd.print("Roll: ");
-        //lcd.print(mpu.getRoll());
-        //lcd.setCursor(0, 1);
-        //lcd.print("Pitch: ");
-        //lcd.print(mpu.getPitch());
-        //lcd.setCursor(0, 2);
-        //lcd.print("Mag: ");
-        //lcd.print(heading);
-    //}
+        if (heading < 0){
+            heading += 360;
+        }
+
+        lcd.clear();
+        lcd.print("Roll: ");
+        lcd.print(mpu.getRoll());
+        lcd.setCursor(0, 1);
+        lcd.print("Pitch: ");
+        lcd.print(mpu.getPitch());
+        lcd.setCursor(0, 2);
+        lcd.print("Mag: ");
+        lcd.print(heading);
+    }

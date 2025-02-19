@@ -14,9 +14,11 @@ namespace SatelliteTrackerActual
         public double SatAzimuth { get; set; }
         public double SatLatitude { get; set; }
         public double SatLongitude { get; set; }
+        public double SatAltitude { get; set; }
+
         public DateTime Date { get; set; }
 
-        public RelevantData(string satName, int satId, double elevation, double azimuth, double satLatitude, double satLongitude, DateTime date)
+        public RelevantData(string satName, int satId, double elevation, double azimuth, double satLatitude, double satLongitude, double satAltitude, DateTime date)
         {
             SatName = satName;
             SatId = satId;
@@ -24,6 +26,7 @@ namespace SatelliteTrackerActual
             SatAzimuth = azimuth;
             SatLatitude = satLatitude;
             SatLongitude = satLongitude;
+            SatAltitude = satAltitude;
             Date = date;
         }
     }

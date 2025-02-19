@@ -12,7 +12,7 @@ namespace SatelliteTrackerActual
     {
         private const string db = "SavedSatellites";
 
-        // TODO - Make the AddUser methode actually save to the database
+        // TODO - Make the AddUser method actually save to the database
         /// <summary>
         /// Saves a new user to the database
         /// </summary>

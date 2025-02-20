@@ -41,7 +41,7 @@
             this.currentlyTrackingLabel = new System.Windows.Forms.Label();
             this.satelliteLabel = new System.Windows.Forms.Label();
             this.userLatitudeBox = new System.Windows.Forms.TextBox();
-            this.previousDropDown = new System.Windows.Forms.ComboBox();
+            this.savedLocationDropDown = new System.Windows.Forms.ComboBox();
             this.userSavedLocationLabel = new System.Windows.Forms.Label();
             this.savedSatsListBox = new System.Windows.Forms.ListBox();
             this.userLongitudeBox = new System.Windows.Forms.TextBox();
@@ -52,7 +52,7 @@
             this.satelliteLatitudeActual = new System.Windows.Forms.Label();
             this.satelliteLongitudeActual = new System.Windows.Forms.Label();
             this.satelliteLongitudeLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.satelliteAltitudeActual = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.satelliteElevationActual = new System.Windows.Forms.Label();
             this.satelliteElevationLabel = new System.Windows.Forms.Label();
@@ -69,14 +69,14 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.PortName = "COM16";
+            this.serialPort1.PortName = "COM10";
             // 
             // Home
             // 
-            this.Home.Location = new System.Drawing.Point(161, 1192);
+            this.Home.Location = new System.Drawing.Point(90, 647);
             this.Home.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Home.Name = "Home";
-            this.Home.Size = new System.Drawing.Size(213, 78);
+            this.Home.Size = new System.Drawing.Size(135, 46);
             this.Home.TabIndex = 0;
             this.Home.Text = "HOME";
             this.Home.UseVisualStyleBackColor = true;
@@ -84,10 +84,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(683, 1192);
+            this.button3.Location = new System.Drawing.Point(380, 647);
             this.button3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(213, 78);
+            this.button3.Size = new System.Drawing.Size(132, 46);
             this.button3.TabIndex = 2;
             this.button3.Text = "CW";
             this.button3.UseVisualStyleBackColor = true;
@@ -95,10 +95,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(943, 1192);
+            this.button4.Location = new System.Drawing.Point(522, 647);
             this.button4.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(213, 78);
+            this.button4.Size = new System.Drawing.Size(135, 46);
             this.button4.TabIndex = 4;
             this.button4.Text = "ELEV UP";
             this.button4.UseVisualStyleBackColor = true;
@@ -106,10 +106,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1203, 1192);
+            this.button1.Location = new System.Drawing.Point(667, 647);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 78);
+            this.button1.Size = new System.Drawing.Size(133, 46);
             this.button1.TabIndex = 5;
             this.button1.Text = "ELEV DWN";
             this.button1.UseVisualStyleBackColor = true;
@@ -117,10 +117,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(422, 1192);
+            this.button2.Location = new System.Drawing.Point(235, 647);
             this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(213, 78);
+            this.button2.Size = new System.Drawing.Size(135, 46);
             this.button2.TabIndex = 7;
             this.button2.Text = "CCW";
             this.button2.UseVisualStyleBackColor = true;
@@ -129,11 +129,11 @@
             // userLatitudeLabel
             // 
             this.userLatitudeLabel.AutoSize = true;
-            this.userLatitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLatitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.userLatitudeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.userLatitudeLabel.Location = new System.Drawing.Point(78, 720);
+            this.userLatitudeLabel.Location = new System.Drawing.Point(86, 422);
             this.userLatitudeLabel.Name = "userLatitudeLabel";
-            this.userLatitudeLabel.Size = new System.Drawing.Size(246, 40);
+            this.userLatitudeLabel.Size = new System.Drawing.Size(183, 30);
             this.userLatitudeLabel.TabIndex = 8;
             this.userLatitudeLabel.Text = "USER LATITUDE:";
             this.userLatitudeLabel.Click += new System.EventHandler(this.userLatitudeLabel_Click);
@@ -141,11 +141,11 @@
             // userLongitudeLabel
             // 
             this.userLongitudeLabel.AutoSize = true;
-            this.userLongitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userLongitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.userLongitudeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.userLongitudeLabel.Location = new System.Drawing.Point(79, 805);
+            this.userLongitudeLabel.Location = new System.Drawing.Point(69, 469);
             this.userLongitudeLabel.Name = "userLongitudeLabel";
-            this.userLongitudeLabel.Size = new System.Drawing.Size(278, 40);
+            this.userLongitudeLabel.Size = new System.Drawing.Size(207, 30);
             this.userLongitudeLabel.TabIndex = 9;
             this.userLongitudeLabel.Text = "USER LONGITUDE:";
             this.userLongitudeLabel.Click += new System.EventHandler(this.label1_Click);
@@ -153,208 +153,210 @@
             // currentlyTrackingLabel
             // 
             this.currentlyTrackingLabel.AutoSize = true;
-            this.currentlyTrackingLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentlyTrackingLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 24F);
             this.currentlyTrackingLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.currentlyTrackingLabel.Location = new System.Drawing.Point(73, 56);
+            this.currentlyTrackingLabel.Location = new System.Drawing.Point(60, 36);
             this.currentlyTrackingLabel.Name = "currentlyTrackingLabel";
-            this.currentlyTrackingLabel.Size = new System.Drawing.Size(630, 71);
+            this.currentlyTrackingLabel.Size = new System.Drawing.Size(544, 62);
             this.currentlyTrackingLabel.TabIndex = 10;
             this.currentlyTrackingLabel.Text = "CURRENTLY TRACKING: ";
             // 
             // satelliteLabel
             // 
             this.satelliteLabel.AutoSize = true;
-            this.satelliteLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.satelliteLabel.ForeColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.satelliteLabel.Location = new System.Drawing.Point(717, 56);
+            this.satelliteLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 24F);
+            this.satelliteLabel.ForeColor = System.Drawing.Color.Lime;
+            this.satelliteLabel.Location = new System.Drawing.Point(429, 36);
             this.satelliteLabel.Name = "satelliteLabel";
-            this.satelliteLabel.Size = new System.Drawing.Size(232, 71);
+            this.satelliteLabel.Size = new System.Drawing.Size(200, 62);
             this.satelliteLabel.TabIndex = 11;
             this.satelliteLabel.Text = "<none>";
             this.satelliteLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // userLatitudeBox
             // 
-            this.userLatitudeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLatitudeBox.Location = new System.Drawing.Point(389, 709);
+            this.userLatitudeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.userLatitudeBox.Location = new System.Drawing.Point(231, 414);
             this.userLatitudeBox.Name = "userLatitudeBox";
-            this.userLatitudeBox.Size = new System.Drawing.Size(560, 53);
+            this.userLatitudeBox.Size = new System.Drawing.Size(308, 44);
             this.userLatitudeBox.TabIndex = 12;
             // 
-            // previousDropDown
+            // savedLocationDropDown
             // 
-            this.previousDropDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.previousDropDown.FormattingEnabled = true;
-            this.previousDropDown.Location = new System.Drawing.Point(389, 535);
-            this.previousDropDown.Name = "previousDropDown";
-            this.previousDropDown.Size = new System.Drawing.Size(560, 54);
-            this.previousDropDown.TabIndex = 13;
+            this.savedLocationDropDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.savedLocationDropDown.FormattingEnabled = true;
+            this.savedLocationDropDown.Location = new System.Drawing.Point(231, 321);
+            this.savedLocationDropDown.Name = "savedLocationDropDown";
+            this.savedLocationDropDown.Size = new System.Drawing.Size(308, 45);
+            this.savedLocationDropDown.TabIndex = 13;
             // 
             // userSavedLocationLabel
             // 
             this.userSavedLocationLabel.AutoSize = true;
-            this.userSavedLocationLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSavedLocationLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.userSavedLocationLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.userSavedLocationLabel.Location = new System.Drawing.Point(78, 546);
+            this.userSavedLocationLabel.Location = new System.Drawing.Point(71, 329);
             this.userSavedLocationLabel.Name = "userSavedLocationLabel";
-            this.userSavedLocationLabel.Size = new System.Drawing.Size(276, 40);
+            this.userSavedLocationLabel.Size = new System.Drawing.Size(206, 30);
             this.userSavedLocationLabel.TabIndex = 14;
             this.userSavedLocationLabel.Text = "SAVED LOCATION";
+            this.userSavedLocationLabel.Click += new System.EventHandler(this.userSavedLocationLabel_Click);
             // 
             // savedSatsListBox
             // 
             this.savedSatsListBox.FormattingEnabled = true;
             this.savedSatsListBox.ItemHeight = 29;
-            this.savedSatsListBox.Location = new System.Drawing.Point(86, 241);
+            this.savedSatsListBox.Location = new System.Drawing.Point(67, 140);
             this.savedSatsListBox.Name = "savedSatsListBox";
-            this.savedSatsListBox.Size = new System.Drawing.Size(863, 265);
+            this.savedSatsListBox.Size = new System.Drawing.Size(472, 149);
             this.savedSatsListBox.TabIndex = 15;
             // 
             // userLongitudeBox
             // 
-            this.userLongitudeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userLongitudeBox.Location = new System.Drawing.Point(389, 794);
+            this.userLongitudeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.userLongitudeBox.Location = new System.Drawing.Point(231, 461);
             this.userLongitudeBox.Name = "userLongitudeBox";
-            this.userLongitudeBox.Size = new System.Drawing.Size(560, 53);
+            this.userLongitudeBox.Size = new System.Drawing.Size(308, 44);
             this.userLongitudeBox.TabIndex = 16;
             // 
             // newSatelliteIDLabel
             // 
             this.newSatelliteIDLabel.AutoSize = true;
-            this.newSatelliteIDLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newSatelliteIDLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.newSatelliteIDLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.newSatelliteIDLabel.Location = new System.Drawing.Point(79, 170);
+            this.newSatelliteIDLabel.Location = new System.Drawing.Point(63, 99);
             this.newSatelliteIDLabel.Name = "newSatelliteIDLabel";
-            this.newSatelliteIDLabel.Size = new System.Drawing.Size(295, 40);
+            this.newSatelliteIDLabel.Size = new System.Drawing.Size(220, 30);
             this.newSatelliteIDLabel.TabIndex = 17;
             this.newSatelliteIDLabel.Text = "NEW SATELLITE ID: ";
             this.newSatelliteIDLabel.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // newSatelliteIDBox
             // 
-            this.newSatelliteIDBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newSatelliteIDBox.Location = new System.Drawing.Point(380, 159);
+            this.newSatelliteIDBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.newSatelliteIDBox.Location = new System.Drawing.Point(209, 91);
             this.newSatelliteIDBox.Name = "newSatelliteIDBox";
-            this.newSatelliteIDBox.Size = new System.Drawing.Size(422, 53);
+            this.newSatelliteIDBox.Size = new System.Drawing.Size(234, 44);
             this.newSatelliteIDBox.TabIndex = 18;
             // 
             // addSatelliteIDButton
             // 
-            this.addSatelliteIDButton.Location = new System.Drawing.Point(831, 159);
+            this.addSatelliteIDButton.Location = new System.Drawing.Point(451, 91);
             this.addSatelliteIDButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.addSatelliteIDButton.Name = "addSatelliteIDButton";
-            this.addSatelliteIDButton.Size = new System.Drawing.Size(115, 53);
+            this.addSatelliteIDButton.Size = new System.Drawing.Size(88, 32);
             this.addSatelliteIDButton.TabIndex = 19;
             this.addSatelliteIDButton.Text = "ADD";
             this.addSatelliteIDButton.UseVisualStyleBackColor = true;
+            this.addSatelliteIDButton.Click += new System.EventHandler(this.addSatelliteIDButton_Click);
             // 
             // satelliteLatitudeLabel
             // 
             this.satelliteLatitudeLabel.AutoSize = true;
-            this.satelliteLatitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.satelliteLatitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.satelliteLatitudeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.satelliteLatitudeLabel.Location = new System.Drawing.Point(1044, 218);
+            this.satelliteLatitudeLabel.Location = new System.Drawing.Point(582, 97);
             this.satelliteLatitudeLabel.Name = "satelliteLatitudeLabel";
-            this.satelliteLatitudeLabel.Size = new System.Drawing.Size(220, 40);
+            this.satelliteLatitudeLabel.Size = new System.Drawing.Size(164, 30);
             this.satelliteLatitudeLabel.TabIndex = 20;
             this.satelliteLatitudeLabel.Text = "SAT LATITUDE";
             // 
             // satelliteLatitudeActual
             // 
             this.satelliteLatitudeActual.AutoSize = true;
-            this.satelliteLatitudeActual.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.satelliteLatitudeActual.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.satelliteLatitudeActual.Location = new System.Drawing.Point(1042, 271);
+            this.satelliteLatitudeActual.Font = new System.Drawing.Font("Microsoft Tai Le", 16F);
+            this.satelliteLatitudeActual.ForeColor = System.Drawing.Color.Lime;
+            this.satelliteLatitudeActual.Location = new System.Drawing.Point(582, 135);
             this.satelliteLatitudeActual.Name = "satelliteLatitudeActual";
-            this.satelliteLatitudeActual.Size = new System.Drawing.Size(166, 51);
+            this.satelliteLatitudeActual.Size = new System.Drawing.Size(133, 40);
             this.satelliteLatitudeActual.TabIndex = 22;
             this.satelliteLatitudeActual.Text = "<none>";
             // 
             // satelliteLongitudeActual
             // 
             this.satelliteLongitudeActual.AutoSize = true;
-            this.satelliteLongitudeActual.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.satelliteLongitudeActual.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.satelliteLongitudeActual.Location = new System.Drawing.Point(1042, 401);
+            this.satelliteLongitudeActual.Font = new System.Drawing.Font("Microsoft Tai Le", 16F);
+            this.satelliteLongitudeActual.ForeColor = System.Drawing.Color.Lime;
+            this.satelliteLongitudeActual.Location = new System.Drawing.Point(580, 232);
             this.satelliteLongitudeActual.Name = "satelliteLongitudeActual";
-            this.satelliteLongitudeActual.Size = new System.Drawing.Size(166, 51);
+            this.satelliteLongitudeActual.Size = new System.Drawing.Size(133, 40);
             this.satelliteLongitudeActual.TabIndex = 24;
             this.satelliteLongitudeActual.Text = "<none>";
             // 
             // satelliteLongitudeLabel
             // 
             this.satelliteLongitudeLabel.AutoSize = true;
-            this.satelliteLongitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.satelliteLongitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.satelliteLongitudeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.satelliteLongitudeLabel.Location = new System.Drawing.Point(1044, 348);
+            this.satelliteLongitudeLabel.Location = new System.Drawing.Point(581, 193);
             this.satelliteLongitudeLabel.Name = "satelliteLongitudeLabel";
-            this.satelliteLongitudeLabel.Size = new System.Drawing.Size(252, 40);
+            this.satelliteLongitudeLabel.Size = new System.Drawing.Size(188, 30);
             this.satelliteLongitudeLabel.TabIndex = 23;
             this.satelliteLongitudeLabel.Text = "SAT LONGITUDE";
             // 
-            // label3
+            // satelliteAltitudeActual
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label3.Location = new System.Drawing.Point(1042, 526);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 51);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "<none>";
+            this.satelliteAltitudeActual.AutoSize = true;
+            this.satelliteAltitudeActual.Font = new System.Drawing.Font("Microsoft Tai Le", 16F);
+            this.satelliteAltitudeActual.ForeColor = System.Drawing.Color.Lime;
+            this.satelliteAltitudeActual.Location = new System.Drawing.Point(582, 336);
+            this.satelliteAltitudeActual.Name = "satelliteAltitudeActual";
+            this.satelliteAltitudeActual.Size = new System.Drawing.Size(133, 40);
+            this.satelliteAltitudeActual.TabIndex = 26;
+            this.satelliteAltitudeActual.Text = "<none>";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(1044, 473);
+            this.label4.Location = new System.Drawing.Point(582, 298);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(220, 40);
+            this.label4.Size = new System.Drawing.Size(164, 30);
             this.label4.TabIndex = 25;
             this.label4.Text = "SAT ALTITUDE";
             // 
             // satelliteElevationActual
             // 
             this.satelliteElevationActual.AutoSize = true;
-            this.satelliteElevationActual.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.satelliteElevationActual.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.satelliteElevationActual.Location = new System.Drawing.Point(1042, 651);
+            this.satelliteElevationActual.Font = new System.Drawing.Font("Microsoft Tai Le", 16F);
+            this.satelliteElevationActual.ForeColor = System.Drawing.Color.Lime;
+            this.satelliteElevationActual.Location = new System.Drawing.Point(580, 428);
             this.satelliteElevationActual.Name = "satelliteElevationActual";
-            this.satelliteElevationActual.Size = new System.Drawing.Size(166, 51);
+            this.satelliteElevationActual.Size = new System.Drawing.Size(133, 40);
             this.satelliteElevationActual.TabIndex = 28;
             this.satelliteElevationActual.Text = "<none>";
             // 
             // satelliteElevationLabel
             // 
             this.satelliteElevationLabel.AutoSize = true;
-            this.satelliteElevationLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.satelliteElevationLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.satelliteElevationLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.satelliteElevationLabel.Location = new System.Drawing.Point(1044, 598);
+            this.satelliteElevationLabel.Location = new System.Drawing.Point(582, 391);
             this.satelliteElevationLabel.Name = "satelliteElevationLabel";
-            this.satelliteElevationLabel.Size = new System.Drawing.Size(243, 40);
+            this.satelliteElevationLabel.Size = new System.Drawing.Size(181, 30);
             this.satelliteElevationLabel.TabIndex = 27;
             this.satelliteElevationLabel.Text = "SAT ELEVATION";
             // 
             // satelliteAzimuthActual
             // 
             this.satelliteAzimuthActual.AutoSize = true;
-            this.satelliteAzimuthActual.Font = new System.Drawing.Font("Microsoft Tai Le", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.satelliteAzimuthActual.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.satelliteAzimuthActual.Location = new System.Drawing.Point(1042, 778);
+            this.satelliteAzimuthActual.Font = new System.Drawing.Font("Microsoft Tai Le", 16F);
+            this.satelliteAzimuthActual.ForeColor = System.Drawing.Color.Lime;
+            this.satelliteAzimuthActual.Location = new System.Drawing.Point(581, 514);
             this.satelliteAzimuthActual.Name = "satelliteAzimuthActual";
-            this.satelliteAzimuthActual.Size = new System.Drawing.Size(166, 51);
+            this.satelliteAzimuthActual.Size = new System.Drawing.Size(133, 40);
             this.satelliteAzimuthActual.TabIndex = 30;
             this.satelliteAzimuthActual.Text = "<none>";
             // 
             // satelliteAzimuthLabel
             // 
             this.satelliteAzimuthLabel.AutoSize = true;
-            this.satelliteAzimuthLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.satelliteAzimuthLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.satelliteAzimuthLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.satelliteAzimuthLabel.Location = new System.Drawing.Point(1044, 725);
+            this.satelliteAzimuthLabel.Location = new System.Drawing.Point(584, 477);
             this.satelliteAzimuthLabel.Name = "satelliteAzimuthLabel";
-            this.satelliteAzimuthLabel.Size = new System.Drawing.Size(220, 40);
+            this.satelliteAzimuthLabel.Size = new System.Drawing.Size(164, 30);
             this.satelliteAzimuthLabel.TabIndex = 29;
             this.satelliteAzimuthLabel.Text = "SAT AZIMUTH";
             // 
@@ -362,20 +364,21 @@
             // 
             this.saveUserLocationLabel.AutoEllipsis = true;
             this.saveUserLocationLabel.AutoSize = true;
-            this.saveUserLocationLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveUserLocationLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.saveUserLocationLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.saveUserLocationLabel.Location = new System.Drawing.Point(114, 1019);
+            this.saveUserLocationLabel.Location = new System.Drawing.Point(72, 565);
             this.saveUserLocationLabel.Name = "saveUserLocationLabel";
-            this.saveUserLocationLabel.Size = new System.Drawing.Size(337, 40);
+            this.saveUserLocationLabel.Size = new System.Drawing.Size(251, 30);
             this.saveUserLocationLabel.TabIndex = 31;
             this.saveUserLocationLabel.Text = "SAVE USER LOCATION";
+            this.saveUserLocationLabel.Click += new System.EventHandler(this.saveUserLocationLabel_Click);
             // 
             // saveUserLocationButton
             // 
-            this.saveUserLocationButton.Location = new System.Drawing.Point(459, 1013);
+            this.saveUserLocationButton.Location = new System.Drawing.Point(249, 558);
             this.saveUserLocationButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.saveUserLocationButton.Name = "saveUserLocationButton";
-            this.saveUserLocationButton.Size = new System.Drawing.Size(130, 53);
+            this.saveUserLocationButton.Size = new System.Drawing.Size(98, 41);
             this.saveUserLocationButton.TabIndex = 32;
             this.saveUserLocationButton.Text = "SAVE";
             this.saveUserLocationButton.UseVisualStyleBackColor = true;
@@ -384,60 +387,60 @@
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.RosyBrown;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(682, 1013);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button5.Location = new System.Drawing.Point(389, 558);
             this.button5.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(267, 105);
+            this.button5.Size = new System.Drawing.Size(170, 59);
             this.button5.TabIndex = 33;
             this.button5.Text = "TRACK";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // locationNameBox
             // 
-            this.locationNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locationNameBox.Location = new System.Drawing.Point(390, 623);
+            this.locationNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.locationNameBox.Location = new System.Drawing.Point(231, 369);
             this.locationNameBox.Name = "locationNameBox";
-            this.locationNameBox.Size = new System.Drawing.Size(560, 53);
+            this.locationNameBox.Size = new System.Drawing.Size(308, 44);
             this.locationNameBox.TabIndex = 35;
             // 
             // locationNameLabel
             // 
             this.locationNameLabel.AutoSize = true;
-            this.locationNameLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationNameLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.locationNameLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.locationNameLabel.Location = new System.Drawing.Point(79, 634);
+            this.locationNameLabel.Location = new System.Drawing.Point(72, 373);
             this.locationNameLabel.Name = "locationNameLabel";
-            this.locationNameLabel.Size = new System.Drawing.Size(277, 40);
+            this.locationNameLabel.Size = new System.Drawing.Size(206, 30);
             this.locationNameLabel.TabIndex = 34;
             this.locationNameLabel.Text = "LOCATION NAME:";
             // 
             // userAltitudeLabel
             // 
             this.userAltitudeLabel.AutoSize = true;
-            this.userAltitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userAltitudeLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 12F);
             this.userAltitudeLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.userAltitudeLabel.Location = new System.Drawing.Point(80, 890);
+            this.userAltitudeLabel.Location = new System.Drawing.Point(86, 519);
             this.userAltitudeLabel.Name = "userAltitudeLabel";
-            this.userAltitudeLabel.Size = new System.Drawing.Size(246, 40);
+            this.userAltitudeLabel.Size = new System.Drawing.Size(183, 30);
             this.userAltitudeLabel.TabIndex = 36;
             this.userAltitudeLabel.Text = "USER ALTITUDE:";
             // 
             // userAltitudeBox
             // 
-            this.userAltitudeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userAltitudeBox.Location = new System.Drawing.Point(390, 879);
+            this.userAltitudeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.userAltitudeBox.Location = new System.Drawing.Point(231, 511);
             this.userAltitudeBox.Name = "userAltitudeBox";
-            this.userAltitudeBox.Size = new System.Drawing.Size(450, 53);
+            this.userAltitudeBox.Size = new System.Drawing.Size(308, 44);
             this.userAltitudeBox.TabIndex = 37;
             // 
             // TrackerUIForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1515, 1349);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(7)))), ((int)(((byte)(44)))));
+            this.ClientSize = new System.Drawing.Size(902, 734);
             this.Controls.Add(this.userAltitudeBox);
             this.Controls.Add(this.userAltitudeLabel);
             this.Controls.Add(this.locationNameBox);
@@ -449,7 +452,7 @@
             this.Controls.Add(this.satelliteAzimuthLabel);
             this.Controls.Add(this.satelliteElevationActual);
             this.Controls.Add(this.satelliteElevationLabel);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.satelliteAltitudeActual);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.satelliteLongitudeActual);
             this.Controls.Add(this.satelliteLongitudeLabel);
@@ -461,7 +464,7 @@
             this.Controls.Add(this.userLongitudeBox);
             this.Controls.Add(this.savedSatsListBox);
             this.Controls.Add(this.userSavedLocationLabel);
-            this.Controls.Add(this.previousDropDown);
+            this.Controls.Add(this.savedLocationDropDown);
             this.Controls.Add(this.userLatitudeBox);
             this.Controls.Add(this.satelliteLabel);
             this.Controls.Add(this.currentlyTrackingLabel);
@@ -495,7 +498,7 @@
         private System.Windows.Forms.Label currentlyTrackingLabel;
         private System.Windows.Forms.Label satelliteLabel;
         private System.Windows.Forms.TextBox userLatitudeBox;
-        private System.Windows.Forms.ComboBox previousDropDown;
+        private System.Windows.Forms.ComboBox savedLocationDropDown;
         private System.Windows.Forms.Label userSavedLocationLabel;
         private System.Windows.Forms.ListBox savedSatsListBox;
         private System.Windows.Forms.TextBox userLongitudeBox;
@@ -506,7 +509,7 @@
         private System.Windows.Forms.Label satelliteLatitudeActual;
         private System.Windows.Forms.Label satelliteLongitudeActual;
         private System.Windows.Forms.Label satelliteLongitudeLabel;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label satelliteAltitudeActual;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label satelliteElevationActual;
         private System.Windows.Forms.Label satelliteElevationLabel;
